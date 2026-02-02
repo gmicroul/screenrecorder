@@ -1,13 +1,12 @@
-name: Github CI build1
-
+name: Build screenrecorder for SFOS
 on:
-  push:
-    tags:
-      - '*'
-  pull_request:
-    branches:
-      - master
-
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      set_example:
+        description: "screenrecorder"
+        required: true
+        default: "sfos"
 env:
   RELEASE: 5.0.0.68
 
