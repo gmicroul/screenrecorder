@@ -26,7 +26,7 @@ jobs:
             cd build ;
             cp -r /share/* . ;
             mb2 -t SailfishOS-$RELEASE-armv7hl build ;
-            sudo cp -r RPMS/*.rpm /share/output"
+            cp -r RPMS/*.rpm /share/output"
 
     - name: Build aarch64
       run: docker run --rm --privileged -v $PWD:/share coderus/sailfishos-platform-sdk:$RELEASE /bin/bash -c "
@@ -34,7 +34,7 @@ jobs:
             cd build ;
             cp -r /share/* . ;
             mb2 -t SailfishOS-$RELEASE-aarch64 build ;
-            sudo cp -r RPMS/*.rpm /share/output"
+            cp -r RPMS/*.rpm /share/output"
 
     - name: Build i486
       run: docker run --rm --privileged -v $PWD:/share coderus/sailfishos-platform-sdk:$RELEASE /bin/bash -c "
@@ -42,7 +42,7 @@ jobs:
             cd build ;
             cp -r /share/* . ;
             mb2 -t SailfishOS-$RELEASE-i486 build ;
-            sudo cp -r RPMS/*.rpm /share/output"
+            cp -r RPMS/*.rpm /share/output"
       
     - name: Upload build result
       uses: actions/upload-artifact@v4
